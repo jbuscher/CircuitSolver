@@ -2,33 +2,13 @@
 <html>
 <head>
 	<title>Circuit Solver</title>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script script src="circuitSolver.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<input type="text" id="input" value="HEllo, World!"/>
 	<button id="GO">GO</button>
 </body>
-
-<script type="text/javascript">
-(function() {
-	"use strict";
-
-	$(document).ready(function() {
-		$( "#GO" ).click(function() {
-			$.ajax({
-				type: "POST",
-				url: "helloWebApp.py",
-				data: { param: $( "#input" ).val},
-				success: function(data, status, JQxhr) {
-					alert(data);
-				},
-				error: function() {
-					alert("Error");
-				}
-			})
-		})
-	});
-})();
-	
-</script>
 </html>
