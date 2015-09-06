@@ -3,3 +3,7 @@ body {
    				Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
 }
+
+.panel {
+    border: 1px;
+}
