@@ -59,30 +59,36 @@ body {
 List elements, set the images for each
 */
 
+li {
+    vertical-align: top;
+    padding: 5px;
+    margin-left: 2px;
+}
+
 #lires{
-    list-style-image: url('images/Resistor.png');
+    list-style-image: url('images/ResistorIcon.png');
 }
 
 #livolt {
-    list-style-image: url('images/VoltageSource.png');
+    list-style-image: url('images/VoltageSourceIcon.png');
 }
 
 #licurr {
-    list-style-image: url('images/CurrentSource.png');
+    list-style-image: url('images/CurrentSourceIcon.png');
 }
 
 #liwire {
-    list-style-image: url('images/Wire.png');
+    list-style-image: url('images/WireIcon.png');
 }
 
 #liground {
-    list-style-image: url('images/Ground.png');
+    list-style-image: url('images/GroundIcon.png');
 }
 
 #lidel {
-    list-style-image: url('images/Delete.png');
+    list-style-image: url('images/DeleteIcon.png');
 }
 
 #liclear {
-    list-style-image: url('images/ClearAll.png');
+    list-style-image: url('images/ClearAllIcon.png');
 }
