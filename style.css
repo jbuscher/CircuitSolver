@@ -9,7 +9,7 @@ body {
 
 .panel {
     border: 2px solid gray;
-    height: 75%;
+    height: 80%;
 }
 
 .box {
@@ -55,6 +55,12 @@ body {
     height: 20%;
 }
 
+.title {
+    font-weight: bold;
+    border: 1px solid gray;
+    border-bottom: 3px solid gray;
+    padding: 3px;
+}
 /*
 List elements, set the images for each
 */
