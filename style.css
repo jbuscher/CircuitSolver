@@ -54,3 +54,35 @@ body {
     width: 100%;
     height: 20%;
 }
+
+/*
+List elements, set the images for each
+*/
+
+#lires{
+    list-style-image: url('images/resistor.png');
+}
+
+#livolt {
+    list-style-image: url('images/voltsource.png');
+}
+
+#licurr {
+    list-style-image: url('images/currsource.png');
+}
+
+#liwire {
+    list-style-image: url('images/wire.png');
+}
+
+#liground {
+    list-style-image: url('images/ground.png');
+}
+
+#lidel {
+    list-style-image: url('images/delete.png');
+}
+
+#liclear {
+    list-style-image: url('images/clearall.png');
+}
