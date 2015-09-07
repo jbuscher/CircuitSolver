@@ -60,29 +60,29 @@ List elements, set the images for each
 */
 
 #lires{
-    list-style-image: url('images/resistor.png');
+    list-style-image: url('images/Resistor.png');
 }
 
 #livolt {
-    list-style-image: url('images/voltsource.png');
+    list-style-image: url('images/VoltageSource.png');
 }
 
 #licurr {
-    list-style-image: url('images/currsource.png');
+    list-style-image: url('images/CurrentSource.png');
 }
 
 #liwire {
-    list-style-image: url('images/wire.png');
+    list-style-image: url('images/Wire.png');
 }
 
 #liground {
-    list-style-image: url('images/ground.png');
+    list-style-image: url('images/Ground.png');
 }
 
 #lidel {
-    list-style-image: url('images/delete.png');
+    list-style-image: url('images/Delete.png');
 }
 
 #liclear {
-    list-style-image: url('images/clearall.png');
+    list-style-image: url('images/ClearAll.png');
 }
