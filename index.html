@@ -8,8 +8,45 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<input type="text" id="input" value="HEllo, World!"/>
-	<button id="GO">GO</button>
+    <div id="topbanner" class="banner"></div>
+
+    <div id="leftpanel" class="panel">
+
+
+        <div id="elementbox" class="box"> <!-- left upper panel -->
+            <div id="elementtitle" class="title">Circuit Elements</div>
+            <ul>
+                <li id="lires">Resistor</li>
+                <li id="livolt">Voltage Source</li>
+                <li id="licurr">Current Source</li>
+                <li id="liwire">Wire</li>
+                <li id="liground">Ground</li>
+            </ul>
+        </div>
+
+        <div id="toolsbox" class="box"> <!-- left lower panel-->
+            <div id="toolstitle" class="title">Tools</div>
+            <ul>
+                <li id="lidel">Delete</li>
+                <li id="liclear">Clear All</li>
+            </ul>  
+        </div>
+
+    </div>
+
+    <div id="mainpanel" class="panel"> <!-- Main circuit area-->
+        <div id="maintitle" class="title">Circuit 1</div>
+        <div id="errorbox"></div>
+        <button id="solvebutton">Solve</button>
+    </div>
+
+    <div id="rightpanel" class="panel"><!-- Right panel -->
+        <div id="resultstitle" class="title">Results</div>
+    </div>
+
+    
+
+    <div id="bottombanner" class="banner"></div>
 </body>
 
 <script type="text/javascript">
