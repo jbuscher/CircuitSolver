@@ -7,6 +7,12 @@ body {
    padding-right: 20px;
 }
 
+#frame {
+    width: 1200px;
+    height: 700px;
+    margin: auto;
+}
+
 .panel {
     border: 2px solid gray;
     height: 80%;
@@ -27,21 +33,21 @@ body {
 }
 
 #leftpanel {
-    width: 14%;
+    width: 170px;
     float:left;
 }
 
 #elementbox {
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid gray;
 }
 
 #mainpanel {
-    width: 70%;
+    width: 750px;
     float:left;
 }
 
 #rightpanel {
-    width: 14%;
+    width: 170px;
     margin-right: 1%;
     float: left;
 }
