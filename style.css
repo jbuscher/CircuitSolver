@@ -7,6 +7,27 @@ body {
    padding-right: 20px;
 }
 
+.circuit-node {
+    text-align: center;
+    font-size: 20pt;
+    cursor: pointer;
+}
+
+.circuit-node:hover {
+    color: gray;
+}
+
+#circuit-grid {
+    width: 100%;
+    height: 100%;
+}
+
+#circuit-table {
+    width: 100%;
+    height: 95%;
+    border-spacing: 12px;
+}
+
 #frame {
     width: 1200px;
     height: 700px;
@@ -23,40 +44,40 @@ body {
     margin: 0;
 }
 
-#topbanner {
+#top-banner {
     width: 100%;
     height: 8%;
 }
 
-#elementpanel {
+#element-panel {
 
 }
 
-#leftpanel {
+#left-panel {
     width: 170px;
     float:left;
 }
 
-#elementbox {
+#element-box {
     border-bottom: 2px solid gray;
 }
 
-#mainpanel {
+#main-panel {
     width: 750px;
     float:left;
 }
 
-#rightpanel {
+#right-panel {
     width: 170px;
     margin-right: 1%;
     float: left;
 }
 
-#toolspanel {
+#tools-panel {
 
 }
 
-#bottombanner {
+#bottom-banner {
     width: 100%;
     height: 20%;
 }
