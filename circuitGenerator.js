@@ -31,27 +31,34 @@ var COLS=14;
         var nodes = $(".circuit-node");
         for(var i = 0; i < nodes.length; i++) {
             nodes[i].onclick = function() {
+                this.classList.add('selected-node');
                 var neighbors = getNeighbors(this);
-                setOnHovers(this, neighbors);
-                setNodesSecondOnClick(neighbors);
+                setupSecondClick(this, neighbors);
             };
         }
     }
 
-    function setNodesSecondOnClick(neighbors) {
-
-    }
-
-    function setOnHovers(clickedNode, neighbors) {
+    function setupSecondClick(clickedNode, neighbors) {
         var clickedID = clickedNode.id;
         var nodes = $(".circuit-node");
         for(var i = 0; i < nodes.length; i++) {
             var node = nodes[i];
             if (neighbors.indexOf(node.id) > -1) {
+                node.onclick = function() {
+                    //TODO Set up drawing function.
+                    console.log("wooo!");
+                }
             } else if (node.id == clickedID) {
+                //reset state
+                node.classList.remove('clickable');
+                node.onclick = function() {
+                    resetState();
+                    this.classList.remove('selected-node');
+                    setNodesInitialOnClick();
+                }
             } else {
-                nodes[i].classList.add('not-clickable');
-                nodes[i].classList.remove('clickable');
+                node.classList.add('not-clickable');
+                node.classList.remove('clickable');
             }
         }
     }
@@ -61,8 +68,6 @@ var COLS=14;
         var id = node.id.split(",");;
         var row = parseInt(id[1]);
         var col = parseInt(id[2]);
-
-        console.log(row + "," + col);
         //top neighbor
         if(row > 0) {
             neighbors.push("node," + (row-1) + "," + col);
@@ -87,8 +92,15 @@ var COLS=14;
         } else {
             neighbors.push(null);
         }
-        console.log(neighbors);
         return neighbors;
+    }
+
+    function resetState() {
+        var nodes = $(".circuit-node");
+        for(var i = 0 ; i < nodes.length; i++) {
+            nodes[i].classList.remove('not-clickable');
+            nodes[i].classList.add('clickable');
+        }
     }
 
 })();

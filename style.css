@@ -119,6 +119,10 @@ body {
     list-style-image: url('images/ClearAllIcon.png');
 }
 
+.selected-node {
+    color:#89CFF0;
+}
+
 .not-clickable:hover {
     color:red;
     cursor: not-allowed;
