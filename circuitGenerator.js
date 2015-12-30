@@ -45,8 +45,7 @@ var COLS=14;
             var node = nodes[i];
             if (neighbors.indexOf(node.id) > -1) {
                 node.onclick = function() {
-                    //TODO Set up drawing function.
-                    console.log("wooo!");
+                    drawFromTo(clickedNode, this);
                 }
             } else if (node.id == clickedID) {
                 //reset state
@@ -61,6 +60,22 @@ var COLS=14;
                 node.classList.remove('clickable');
             }
         }
+    }
+
+    function drawFromTo(startNode, endNode) {
+        var splitStart = startNode.id.split(',');
+        var splitEnd = endNode.id.split(',');
+        var start = {"row":parseInt(splitStart[1]), "col":parseInt(splitStart[2])};
+        var end = {"row":parseInt(splitEnd[1]), "col":parseInt(splitEnd[2])};
+        var table = $("#circuit-table");
+        var height = table.height();
+        var width = table.width();
+
+        //MARK jbuscher - likely have to change these moving forward
+        var calculatedWidth = width/COLS;
+        var calculatedHeight = height/ROWS;
+        
+
     }
 
     function getNeighbors(node) {
