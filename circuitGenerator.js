@@ -46,6 +46,9 @@ var COLS=14;
             if (neighbors.indexOf(node.id) > -1) {
                 node.onclick = function() {
                     drawFromTo(clickedNode, this);
+                    resetState();
+                    clickedNode.classList.remove('selected-node');
+                    setNodesInitialOnClick();
                 }
             } else if (node.id == clickedID) {
                 //reset state
@@ -65,16 +68,33 @@ var COLS=14;
     function drawFromTo(startNode, endNode) {
         var splitStart = startNode.id.split(',');
         var splitEnd = endNode.id.split(',');
-        var start = {"row":parseInt(splitStart[1]), "col":parseInt(splitStart[2])};
-        var end = {"row":parseInt(splitEnd[1]), "col":parseInt(splitEnd[2])};
-        var table = $("#circuit-table");
-        var height = table.height();
-        var width = table.width();
+        var start = {row:parseInt(splitStart[1]), col:parseInt(splitStart[2])};
+        var end = {row:parseInt(splitEnd[1]), col:parseInt(splitEnd[2])};
+        if(start.col - end.col != 0) {
+            //horizontal
+            var direction = (start.col - end.col);
+            var shift = direction == 1?1:0;
+            var table = $("#circuit-grid");
+            var height = table.height();
+            var width = table.width();
 
-        //MARK jbuscher - likely have to change these moving forward
-        var calculatedWidth = width/COLS;
-        var calculatedHeight = height/ROWS;
-        
+            var colWidth = width/(COLS);
+            var rowHeight = height/(ROWS+1) + 3;
+            
+            var calculatedStart = {row:null, col:null};
+
+            calculatedStart.row = rowHeight * start.row;
+            calculatedStart.col = colWidth * start.col + colWidth/2 - shift*colWidth;
+
+            var htmlString = "<img src='images/wire1.png' style='" +
+                                                        "height:" + rowHeight +
+                                                        "px; width:" + colWidth +
+                                                        "px; position: absolute;" +
+                                                        " top: " + calculatedStart.row +
+                                                        "px; left: " + calculatedStart.col +
+                                                        "px; z-index:-1;'/>";
+            $("#circuit-grid").append(htmlString);
+        }
 
     }
 
