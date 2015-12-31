@@ -3,6 +3,7 @@
 
 var ROWS=9;
 var COLS=14;
+var selectedType = ""
 
     $(document).ready(function() {
         generateCircuitItems();
@@ -45,7 +46,7 @@ var COLS=14;
             var node = nodes[i];
             if (neighbors.indexOf(node.id) > -1) {
                 node.onclick = function() {
-                    drawFromTo(clickedNode, this);
+                    drawFromTo(clickedNode, this, "wire");
                     resetState();
                     clickedNode.classList.remove('selected-node');
                     setNodesInitialOnClick();
@@ -61,40 +62,65 @@ var COLS=14;
             } else {
                 node.classList.add('not-clickable');
                 node.classList.remove('clickable');
+                node.onclick = function() {
+                    return false;
+                }
             }
         }
     }
 
-    function drawFromTo(startNode, endNode) {
+    function drawFromTo(startNode, endNode, type) {
         var splitStart = startNode.id.split(',');
         var splitEnd = endNode.id.split(',');
         var start = {row:parseInt(splitStart[1]), col:parseInt(splitStart[2])};
         var end = {row:parseInt(splitEnd[1]), col:parseInt(splitEnd[2])};
+
+        var table = $("#circuit-grid");
+        var height = table.height();
+        var width = table.width();
+        var colWidth = width/(COLS) - 0.18;
+        var rowHeight = height/(ROWS+1) + 3;
+        var calculatedStart = {row:null, col:null};
+
+        var htmlString = "<img src='images/" + type + "1.png' style='" ;
+
         if(start.col - end.col != 0) {
             //horizontal
             var direction = (start.col - end.col);
             var shift = direction == 1?1:0;
-            var table = $("#circuit-grid");
-            var height = table.height();
-            var width = table.width();
-
-            var colWidth = width/(COLS);
-            var rowHeight = height/(ROWS+1) + 3;
-            
-            var calculatedStart = {row:null, col:null};
+            var rotation = direction == 1?0:180;
 
             calculatedStart.row = rowHeight * start.row;
             calculatedStart.col = colWidth * start.col + colWidth/2 - shift*colWidth;
 
-            var htmlString = "<img src='images/wire1.png' style='" +
-                                                        "height:" + rowHeight +
-                                                        "px; width:" + colWidth +
-                                                        "px; position: absolute;" +
-                                                        " top: " + calculatedStart.row +
-                                                        "px; left: " + calculatedStart.col +
-                                                        "px; z-index:-1;'/>";
-            $("#circuit-grid").append(htmlString);
+            var temp =  "height:" + rowHeight +
+                        "px; width:" + colWidth +
+                        "px; position: absolute;" +
+                        " top: " + calculatedStart.row +
+                        "px; left: " + calculatedStart.col +
+                        "px; z-index:-1;" + 
+                        "transform: rotate(" + rotation + "deg);'/>";
+            htmlString += temp;
+        } else {
+            // vertical
+            var direction = (start.row - end.row);
+            var shift = direction == 1?1:0;
+            var rotation = direction == 1?90:270;
+
+            calculatedStart.row = rowHeight * start.row + rowHeight/2 - shift*rowHeight;
+            calculatedStart.col = colWidth * start.col;
+
+            var temp =  "height:" + rowHeight +
+                        "px; width:" + colWidth +
+                        "px; position: absolute;" +
+                        " top: " + calculatedStart.row +
+                        "px; left: " + calculatedStart.col +
+                        "px; z-index:-1;" + 
+                        "transform: rotate(" + rotation + "deg);'/>";
+            htmlString += temp;
+
         }
+        $("#circuit-grid").append(htmlString);
 
     }
 
