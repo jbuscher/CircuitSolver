@@ -46,7 +46,7 @@ var selectedType = ""
             var node = nodes[i];
             if (neighbors.indexOf(node.id) > -1) {
                 node.onclick = function() {
-                    drawFromTo(clickedNode, this, "wire");
+                    drawFromTo(clickedNode, this, "Wire");
                     resetState();
                     clickedNode.classList.remove('selected-node');
                     setNodesInitialOnClick();
