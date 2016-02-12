@@ -4,52 +4,43 @@
 	<title>Circuit Solver</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script script src="circuitSolver.js"></script>
+    <script src="circuitGenerator.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
-    <div id="top-banner" class="banner"></div>
+    <div class="banner">Circuit Solver</div>
 
     <div id="frame">
         <div id="left-panel" class="panel">
-
-            <div id="element-box" class="box"> <!-- left upper panel -->
-                <div id="element-title" class="title">Circuit Elements</div>
-                <ul>
-                    <li id="lires" class="circuit-element-li">Resistor</li>
-                    <li id="livolt" class="circuit-element-li">Voltage Source</li>
-                    <li id="licurr" class="circuit-element-li">Current Source</li>
-                    <li id="liwire" class="circuit-element-li">Wire</li>
-                    <li id="liground" class="circuit-element-li">Ground</li>
-                </ul>
+            <div class="title">Circuit Elements</div>
+            <div class="list">
+            <div class="list-selection"><img src="images/ResistorIcon.png">Resistor</div>
+            <div class="list-selection"><img src="images/VoltageSourceIcon.png">Voltage Source</div>
+            <div class="list-selection"><img src="images/CurrentSourceIcon.png">Current Source</div>
+            <div class="list-selection"><img src="images/WireIcon.png">Wire</div>
+            <div class="list-selection"><img src="images/GroundIcon.png">Ground</div>
             </div>
 
-            <div id="tools-box" class="box"> <!-- left lower panel-->
-                <div id="tools-title" class="title">Tools</div>
-                <ul>
-                    <li id="lidel" class="tool-li">Delete</li>
-                    <li id="liclear" class="tool-li">Clear All</li>
-                </ul>  
+            <div class="title">Tools</div>
+            <div class="list">
+                <div class="list-selection"><img src="images/DeleteIcon.png">Delete</div>
+                <div class="list-selection"><img src="images/ClearAllIcon.png">Clear-All</div>
             </div>
+        </div> 
 
+        <div id="center-panel" class="panel">
+            <div class="title">Circuit Area <button id="solve-button">Solve-it</button> </div>
+            <div id="circuit-area"></div>
         </div>
 
-        <div id="main-panel" class="panel"> <!-- Main circuit area-->
-
-
-            <div id="main-title" class="title">Circuit 1</div>
-            <div id="circuit-grid"></div>
-            <div id="error-box"></div>
-        </div>
-
-        <div id="right-panel" class="panel"><!-- Right panel -->
-            <div id="results-title" class="title">Results</div>
+        <div id="right-panel" class="panel">
+            <div class="title">results</div>
+            <div id="results-area"></div>
         </div>
     </div>
     
-
-    <div id="bottom-banner" class="banner"></div>
+    <div class="banner"></div>
 </body>
-<script src="circuitGenerator.js"></script>
+
 </html>
